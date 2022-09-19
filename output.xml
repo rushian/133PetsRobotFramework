@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.7 on win32)" generated="20220919 20:12:26.653" rpa="false" schemaversion="3">
+<suite id="s1" name="Consulta Google" source="E:\dev\pyCharm\133PetsRobotFramework\consulta_google.robot">
+<test id="s1-t1" name="Consulta Google" line="18">
+<kw name="Log To Console" library="BuiltIn" type="SETUP">
+<arg>\n===== INICIO DOS TESTES ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220919 20:12:26.944" endtime="20220919 20:12:26.944"/>
+</kw>
+<kw name="Setup chromedriver">
+<kw name="Set Environment Variable" library="OperatingSystem">
+<arg>webdriver.Chrome.driver</arg>
+<arg>${EXECDIR}\\venv\\WebDriverManager\\chrome\\105.0.5195.52\\chromedriver_win32\\chromedriver.exe</arg>
+<doc>Sets an environment variable to a specified value.</doc>
+<msg timestamp="20220919 20:12:26.944" level="INFO">Environment variable 'webdriver.Chrome.driver' set to value 'E:\dev\pyCharm\133PetsRobotFramework\venv\WebDriverManager\chrome\105.0.5195.52\chromedriver_win32\chromedriver.exe'.</msg>
+<status status="PASS" starttime="20220919 20:12:26.944" endtime="20220919 20:12:26.944"/>
+</kw>
+<status status="PASS" starttime="20220919 20:12:26.944" endtime="20220919 20:12:26.944"/>
+</kw>
+<kw name="Dado que estou usando o Chrome e acesso o site https://www.google.com.br">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220919 20:12:26.944" level="INFO">Opening browser 'headlesschrome' to base url 'https://www.google.com.br'.</msg>
+<status status="PASS" starttime="20220919 20:12:26.944" endtime="20220919 20:12:29.801"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Abrir a pagina no navegador</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220919 20:12:29.801" endtime="20220919 20:12:29.802"/>
+</kw>
+<status status="PASS" starttime="20220919 20:12:26.944" endtime="20220919 20:12:29.802"/>
+</kw>
+<kw name="E pesquiso pelo termo deck de magic arena">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${query}</arg>
+<arg>luke magic arena</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220919 20:12:29.803" level="INFO">${query} = luke magic arena</msg>
+<status status="PASS" starttime="20220919 20:12:29.802" endtime="20220919 20:12:29.803"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Buscar a caixa pra digitar "${query}"</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220919 20:12:29.803" endtime="20220919 20:12:29.804"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name = q</arg>
+<arg>${query}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220919 20:12:29.804" level="INFO">Typing text 'luke magic arena' into text field 'name = q'.</msg>
+<status status="PASS" starttime="20220919 20:12:29.804" endtime="20220919 20:12:29.946"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>q</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20220919 20:12:29.947" level="INFO">Sending key(s) ('ENTER',) to q element.</msg>
+<msg timestamp="20220919 20:12:30.265" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20220919 20:12:30.265" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20220919 20:12:29.946" endtime="20220919 20:12:32.504"/>
+</kw>
+<status status="PASS" starttime="20220919 20:12:29.802" endtime="20220919 20:12:32.504"/>
+</kw>
+<kw name="Entao verifico se no titulo da guia contem &quot;luke magic arena&quot;" sourcename="Entao verifico se no titulo da guia contem &quot;${query}&quot;">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Verificar titulo da pagina</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220919 20:12:32.504" endtime="20220919 20:12:32.504"/>
+</kw>
+<kw name="Get Title" library="SeleniumLibrary">
+<var>${titulo}</var>
+<doc>Returns the title of the current page.</doc>
+<msg timestamp="20220919 20:12:32.512" level="INFO">${titulo} = luke magic arena - Pesquisa Google</msg>
+<status status="PASS" starttime="20220919 20:12:32.504" endtime="20220919 20:12:32.512"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${query}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220919 20:12:32.512" endtime="20220919 20:12:32.514"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Verificar e clicar no link escolhido</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220919 20:12:32.514" endtime="20220919 20:12:32.514"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>lukegamer2015</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220919 20:12:32.545" level="INFO">Current page contains text 'lukegamer2015'.</msg>
+<status status="PASS" starttime="20220919 20:12:32.514" endtime="20220919 20:12:32.545"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>xpath=//a[contains(.,'lukegamer2015')]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220919 20:12:32.545" level="INFO">Clicking link 'xpath=//a[contains(.,'lukegamer2015')]'.</msg>
+<status status="PASS" starttime="20220919 20:12:32.545" endtime="20220919 20:12:32.637"/>
+</kw>
+<status status="PASS" starttime="20220919 20:12:32.504" endtime="20220919 20:12:32.637"/>
+</kw>
+<kw name="Encerrar browser" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>4000ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220919 20:12:36.653" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" starttime="20220919 20:12:32.638" endtime="20220919 20:12:36.654"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220919 20:12:36.655" endtime="20220919 20:12:38.822"/>
+</kw>
+<status status="PASS" starttime="20220919 20:12:32.638" endtime="20220919 20:12:38.822"/>
+</kw>
+<tag>smoketest, rapido</tag>
+<status status="PASS" starttime="20220919 20:12:26.944" endtime="20220919 20:12:38.822"/>
+</test>
+<doc>Teste de consulta no buscador Google
+Abre o navegador
+E realiza a consulta com a biblioteca do Selenium
+smoketest e um teste pra garantir o funcionamento minimo</doc>
+<status status="PASS" starttime="20220919 20:12:26.662" endtime="20220919 20:12:38.822"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">smoketest, rapido</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Consulta Google">Consulta Google</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
